@@ -1,4 +1,4 @@
--- Active: 1756209144349@@127.0.0.1@5432@DW_projetointegrador
+-- Active: 1763915470422@@127.0.0.1@5432@postgres
 --Criando a Dimensão de Transporte
 CREATE TABLE Dim_Transporte (
     SK_Transporte SERIAL NOT NULL,  -- Chave Surrogada (1, 2, 3...)
