@@ -26,7 +26,7 @@
 <tr>
 <td width="70%" valign="top">
 
-Este repositório contém a implementação do **Data Warehouse (DW)** para a empresa fictícia **Tour4Friends**. O objetivo do projeto é estruturar dados de peregrinação e turismo para permitir análises estratégicas sobre fluxo de pessoas, modalidades de transporte e sazonalidade.
+Este repositório contém a implementação do **Data Warehouse (DW)** para a empresa **Tour4Friends**. O objetivo do projeto é estruturar dados de peregrinação e turismo para permitir análises estratégicas sobre fluxo de pessoas, modalidades de transporte e sazonalidade.
 
 O foco deste entregável é a implementação de **Lógica de Negócio no Banco de Dados (PL/pgSQL)**, garantindo automação, consistência e auditoria dos dados diretamente na camada de armazenamento.
 
