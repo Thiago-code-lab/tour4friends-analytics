@@ -97,19 +97,19 @@ Queries Otimizadas
       </td>
       <td align="center">
         <a href="#">
-          <img src="https://github.com/github.png" width="100px;" alt="Membro 4"/><br/>
+          <img src="https://media.licdn.com/dms/image/v2/C4D03AQFgxzNm-DDZUg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1619123196498?e=1766016000&v=beta&t=36HQUfb-1v3AoHk6a0zcWXbDaGlieEbtByLGFnqM8e0" width="100px;" alt="Membro 4"/><br/>
           <sub><b>William Nunes</b></sub>
         </a>
       </td>
       <td align="center">
         <a href="#">
-          <img src="https://github.com/github.png" width="100px;" alt="Membro 4"/><br/>
+          <img src="https://github.com/user-attachments/assets/236f15c6-4d49-42b4-881e-5ef0b3703300" width="100px;" alt="Membro 4"/><br/>
           <sub><b>Murilo Santos</b></sub>
         </a>
       </td>
       <td align="center">
         <a href="#">
-          <img src="https://github.com/github.png" width="100px;" alt="Membro 4"/><br/>
+          <img src="https://github.com/user-attachments/assets/f101196a-348f-42e8-ba32-e977bec686b0" width="100px;" alt="Membro 4"/><br/>
           <sub><b>Daniel Fernando</b></sub>
         </a>
       </td>
