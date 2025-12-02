@@ -1,0 +1,141 @@
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tour4Friends</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="login.js" defer></script>
+
+    <style>
+        /* --- Reset e Estilos Globais --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF9F7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Cabeçalho --- */
+        .header-container { border-bottom: 1px solid #f0e6e2; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
+        .logo { font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; }
+        .logo-icon { color: #FF7A29; margin-right: 8px; }
+        .nav-links { list-style: none; display: flex; gap: 2.5rem; font-size: 1rem; }
+        .nav-links a { color: #555; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #FF7A29; }
+        
+        /* --- Login --- */
+        .login-main {
+            flex-grow: 1;
+            display: grid;
+            place-items: center;
+            padding: 4rem 2rem;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 420px;
+            background-color: #F4F1F0;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .input-group { margin-bottom: 1.5rem; }
+
+        .login-form input[type="email"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #FF7A29;
+            box-shadow: 0 0 0 3px rgba(255, 122, 41, 0.2);
+        }
+
+        .btn-submit {
+            background-color: #FF7A29;
+            color: #fff;
+            padding: 0.9rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 122, 41, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 122, 41, 0.4);
+        }
+
+        .signup-link { margin-top: 1.5rem; font-size: 0.9rem; color: #555; }
+        .signup-link a { color: #FF7A29; font-weight: 600; }
+        .signup-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="container">
+            <div class="header">
+                <a href="index.html" class="logo"> <span class="logo-icon">☀️</span>tour4friends</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <!-- LINKS CORRIGIDOS -->
+                        <li><a href="formulario.html">Roteiros</a></li>
+                        <li><a href="minhas_reservas.html">Minhas Reservas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <form class="login-form">
+            <div class="input-group">
+                <input type="email" id="email" placeholder="E-mail" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
+            
+            <button type="submit" class="btn-submit">Acessar</button>
+            
+            <p class="signup-link">
+                Não tem uma conta ainda? <a href="cadastre-se.html">Cadastre-se</a>
+            </p>
+        </form>
+    </main>
+
+</body>
+</html>

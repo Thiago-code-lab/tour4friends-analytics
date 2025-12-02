@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiros - Tour4Friends</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Agora todos os estilos vêm daqui -->
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js" defer></script>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="container">
+            <div class="header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">☀️</span>tour4friends
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <!-- Adicionei style inline aqui só para destacar a página atual no menu, ou poderíamos criar uma classe .active no CSS -->
+                        <li><a href="roteiro.html" style="color: #FF7A29;">Roteiros</a></li>
+                        <li><a href="minhas_reservas.html">Minhas Reservas</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="cadastro.html" class="btn btn-signup">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="page-header">
+            <h1>Escolha o seu <span class="highlight">Caminho</span></h1>
+            <p>Roteiros planejados para todos os níveis de peregrinos.</p>
+        </section>
+
+        <section class="roteiros-grid">
+            
+            <!-- Roteiro 1: Francês -->
+            <div class="roteiro-card">
+                <div class="card-img-container">
+                    <img src="https://media.istockphoto.com/id/475345477/pt/foto/caminho-de-santiago-frances.jpg?s=612x612&w=0&k=20&c=UWDrs45zkN8gkTLiLUd32G7Yvhmzm3QfrM_G2uY0C_k=" alt="Caminho Francês">
+                    <span class="card-tag">Mais Popular</span>
+                </div>
+                <div class="card-content">
+                    <h3>Caminho Francês</h3>
+                    <div class="card-details">
+                        <span class="detail-item">📍 St. Jean Pied de Port</span>
+                        <span class="detail-item">👣 780km</span>
+                        <span class="detail-item">📅 30-35 dias</span>
+                    </div>
+                    <p class="card-desc">
+                        O roteiro mais clássico e rico em cultura. Atravesse os Pirineus, campos de La Rioja e as montanhas de León até chegar à Catedral de Santiago.
+                    </p>
+                    <a href="#" class="btn-card">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Roteiro 2: Português -->
+            <div class="roteiro-card">
+                <div class="card-img-container">
+                    <img src="https://www.lapelerine.com/cache/images/category/586d92cf444bae25d5a9d8065b183fec-randonnecheminportugaispontedelima-18-12.webp" alt="Caminho Português">
+                    <span class="card-tag">Costa e História</span>
+                </div>
+                <div class="card-content">
+                    <h3>Caminho Português</h3>
+                    <div class="card-details">
+                        <span class="detail-item">📍 Porto ou Lisboa</span>
+                        <span class="detail-item">👣 240km (Porto)</span>
+                        <span class="detail-item">📅 10-14 dias</span>
+                    </div>
+                    <p class="card-desc">
+                        Perfeito para quem busca paisagens litorâneas, gastronomia incrível e menos montanhas. Uma jornada suave e acolhedora pelo norte de Portugal.
+                    </p>
+                    <a href="#" class="btn-card">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <!-- Roteiro 3: Primitivo -->
+            <div class="roteiro-card">
+                <div class="card-img-container">
+                    <img src="https://www.spain.info/export/sites/segtur/.content/imagenes/rutas/camino-santiago-primitivo/peregrino-asturias-camino-santiago-s1716458773.jpg" alt="Caminho Primitivo">
+                    <span class="card-tag">Desafio e Natureza</span>
+                </div>
+                <div class="card-content">
+                    <h3>Caminho Primitivo</h3>
+                    <div class="card-details">
+                        <span class="detail-item">📍 Oviedo</span>
+                        <span class="detail-item">👣 320km</span>
+                        <span class="detail-item">📅 13-16 dias</span>
+                    </div>
+                    <p class="card-desc">
+                        O primeiro caminho da história. Montanhoso, desafiador e incrivelmente belo. Para quem busca superar limites e contato puro com a natureza.
+                    </p>
+                    <a href="#" class="btn-card">Ver Detalhes</a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

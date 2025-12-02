@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Reservas - Tour4Friends</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js" defer></script>
+
+    <style>
+        /* --- Estilos Específicos desta Página --- */
+        .action-area { 
+            text-align: center; 
+            margin-bottom: 3rem; 
+        }
+
+        .btn-create-big {
+            display: inline-block;
+            background-color: #FF7A29;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 122, 41, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-create-big:hover {
+            transform: translateY(-3px);
+            background-color: #e66012;
+            box-shadow: 0 8px 25px rgba(255, 122, 41, 0.5);
+        }
+
+        .status.analise { 
+            background-color: #e0f2fe; 
+            color: #0284c7; 
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Mensagem quando não tem reservas */
+        .empty-state {
+            grid-column: 1 / -1; 
+            text-align: center;
+            color: #777;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            padding: 3rem;
+            background-color: #fff;
+            border-radius: 15px;
+            border: 2px dashed #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="container">
+            <div class="header">
+                <a href="index.html" class="logo"> 
+                    <span class="logo-icon">☀️</span>tour4friends
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <!-- Link para a página do formulário/quiz -->
+                        <li><a href="roteiro.html">Roteiros</a></li>
+                        <li><a href="minhas_reservas.html" class="active">Minhas Reservas</a></li> 
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <span id="nome-usuario-header">Olá, Visitante</span>
+                    <div class="user-icon">👤</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="reservas-main">
+        <div class="container">
+            
+            <div class="reservas-header">
+                <h1>Seus Roteiros Personalizados</h1>
+                <p>Acompanhe o status das suas solicitações.</p>
+            </div>
+
+            <!-- BOTÃO GRANDE: Leva para o Quiz (roteiros.html) -->
+            <div class="action-area">
+                <a href="/formulario.html" class="btn-create-big">+ Criar Novo Roteiro</a>
+            </div>
+
+            <!-- GRID DINÂMICO: O Javascript vai preencher isso -->
+            <div class="reservas-grid" id="grid-reservas">
+                <p class="empty-state">Carregando suas reservas...</p>
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            
+            // 1. Verifica se o usuário está logado
+            const nomeSalvo = localStorage.getItem('nomeUsuario');
+            const emailSalvo = localStorage.getItem('emailUsuario');
+
+            if (nomeSalvo) {
+                document.getElementById('nome-usuario-header').innerText = `Olá, ${nomeSalvo}`;
+            }
+
+            if (!emailSalvo) {
+                document.getElementById('grid-reservas').innerHTML = `
+                    <div class="empty-state">
+                        <p>Você precisa fazer login para ver seus roteiros.</p>
+                        <a href="login.html" style="color: #FF7A29; font-weight: bold; margin-top: 10px; display: inline-block;">Ir para Login</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // 2. Conecta com o Python para buscar os dados do banco
+            try {
+                const response = await fetch('http://127.0.0.1:5000/minhas_reservas', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailSalvo })
+                });
+
+                const reservas = await response.json();
+                const grid = document.getElementById('grid-reservas');
+                grid.innerHTML = ''; // Limpa o "Carregando..."
+
+                // Se a lista vier vazia
+                if (reservas.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty-state">
+                            <p>Você ainda não criou nenhum roteiro.</p>
+                            <p style="font-size: 0.9rem; margin-top: 5px;">Clique no botão acima para começar sua jornada!</p>
+                        </div>`;
+                    return;
+                }
+
+                // 3. Gera os cards automaticamente com base nas respostas (q9, q4, etc)
+                reservas.forEach(reserva => {
+                    
+                    // Lógica para definir Imagem e Título baseado no Caminho escolhido (Pergunta 9)
+                    let titulo = "Caminho de Santiago";
+                    let imgUrl = "https://images.unsplash.com/photo-1559067096-49ebca3406aa?q=80&w=2831";
+                    let destino = "Santiago de Compostela";
+
+                    if (reserva.q9 === 'frances') {
+                        titulo = "Caminho Francês";
+                        imgUrl = "https://media.istockphoto.com/id/475345477/pt/foto/caminho-de-santiago-frances.jpg?s=612x612&w=0&k=20&c=UWDrs45zkN8gkTLiLUd32G7Yvhmzm3QfrM_G2uY0C_k=";
+                        destino = "St. Jean → Santiago";
+                    } else if (reserva.q9 === 'portugues') {
+                        titulo = "Caminho Português";
+                        imgUrl = "https://www.lapelerine.com/cache/images/category/586d92cf444bae25d5a9d8065b183fec-randonnecheminportugaispontedelima-18-12.webp";
+                        destino = "Porto → Santiago";
+                    } else if (reserva.q9 === 'primitivo') {
+                        titulo = "Caminho Primitivo";
+                        imgUrl = "https://www.spain.info/export/sites/segtur/.content/imagenes/rutas/camino-santiago-primitivo/peregrino-asturias-camino-santiago-s1716458773.jpg";
+                        destino = "Oviedo → Santiago";
+                    }
+
+                    // Lógica para definir companhia (Pergunta 4)
+                    let companhia = "Peregrino Solo";
+                    if (reserva.q4 === 'casal') companhia = "Em Casal";
+                    if (reserva.q4 === 'amigos') companhia = "Grupo de Amigos";
+
+                    // Cria o HTML do card
+                    const cardHtml = `
+                        <div class="reserva-card">
+                            <div class="reserva-img">
+                                <img src="${imgUrl}" alt="${titulo}">
+                            </div>
+                            <div class="reserva-info">
+                                <div>
+                                    <h2>${titulo}</h2>
+                                    <div class="reserva-details">
+                                        <p><strong>📍 Rota:</strong> ${destino}</p>
+                                        <p><strong>📅 Criado em:</strong> ${reserva.data_envio}</p>
+                                        <p><strong>👥 Estilo:</strong> ${companhia}</p>
+                                    </div>
+                                </div>
+                                <span class="status analise">Em Análise</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Insere na tela
+                    grid.insertAdjacentHTML('beforeend', cardHtml);
+                });
+
+            } catch (error) {
+                console.error(error);
+                document.getElementById('grid-reservas').innerHTML = `
+                    <p class="empty-state" style="color: red;">
+                        Erro ao conectar com o servidor.<br>
+                        Verifique se o arquivo app.py está rodando.
+                    </p>
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>

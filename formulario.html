@@ -1,0 +1,374 @@
+<!-- formulario.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar Roteiro - Tour4Friends</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+    <script src="chat.js" defer></script>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="container">
+            <div class="header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">☀️</span>tour4friends
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="formulario.html">Roteiros</a></li>
+                        <li><a href="minhas_reservas.html">Minhas Reservas</a></li>
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <span id="nome-usuario">Olá, Visitante</span>
+                    <div class="user-icon">👤</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="quiz-container">
+            <h3>Personalize seu roteiro:</h3>
+            
+            <form id="personalize-form">
+
+                <div class="form-step active" data-step="1">
+                    <p class="question-text">1. Quem é você e o que o Caminho de Santiago representa neste momento da sua vida?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q1-op1" name="q1" value="paz">
+                            <label for="q1-op1">Sou peregrino em busca de paz, reflexão e desconexão do trabalho.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1-op2" name="q1" value="desafio">
+                            <label for="q1-op2">Vejo o Caminho como um grande desafio pessoal e uma aventura física.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q1-op3" name="q1" value="mudanca">
+                            <label for="q1-op3">Estou em uma fase de mudança e busco clareza para o futuro.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <p class="question-text">2. Qual é o seu ritmo de caminhada preferido?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q2-op1" name="q2" value="moderado">
+                            <label for="q2-op1">Gosto de caminhar sem pressa, parando para fotos. (Lento/Moderado)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2-op2" name="q2" value="focado">
+                            <label for="q2-op2">Prefiro ritmo constante para chegar cedo. (Focado)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q2-op3" name="q2" value="rapido">
+                            <label for="q2-op3">Sou atleta, quero o máximo de quilômetros. (Rápido/Desafiador)</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <p class="question-text">3. Que tipo de acomodação você prioriza?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q3-op1" name="q3" value="albergue">
+                            <label for="q3-op1">Albergues públicos/paroquiais (Experiência social).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3-op2" name="q3" value="privado">
+                            <label for="q3-op2">Albergues privados ou pensões (Menos pessoas).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q3-op3" name="q3" value="conforto">
+                            <label for="q3-op3">Hotéis e Pousadas de charme (Conforto total).</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <p class="question-text">4. Com quem você planeja fazer a viagem?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q4-op1" name="q4" value="sozinho">
+                            <label for="q4-op1">Vou sozinho(a). Aberto a conhecer pessoas.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4-op2" name="q4" value="casal">
+                            <label for="q4-op2">Vou com meu/minha parceiro(a).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q4-op3" name="q4" value="amigos">
+                            <label for="q4-op3">Vou com um grupo de amigos.</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="5">
+                    <p class="question-text">5. Qual é seu nível de experiência com trilhas longas?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q5-op1" name="q5" value="iniciante">
+                            <label for="q5-op1">Iniciante. Primeira grande aventura.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5-op2" name="q5" value="intermediario">
+                            <label for="q5-op2">Intermediário. Já fiz algumas trilhas.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q5-op3" name="q5" value="experiente">
+                            <label for="q5-op3">Experiente. Faço trekking regularmente.</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="6">
+                    <p class="question-text">6. Qual seu foco principal ao visitar as cidades?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q6-op1" name="q6" value="historia">
+                            <label for="q6-op1">História e Arquitetura (Igrejas e monumentos).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q6-op2" name="q6" value="gastronomia">
+                            <label for="q6-op2">Gastronomia (Pratos locais e tapas).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q6-op3" name="q6" value="descanso">
+                            <label for="q6-op3">Descanso (A cidade é só ponto de parada).</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="7">
+                    <p class="question-text">7. Você prefere carregar mochila ou transporte?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q7-op1" name="q7" value="carregar">
+                            <label for="q7-op1">Carregar minha mochila (Experiência raiz).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q7-op2" name="q7" value="transportar">
+                            <label for="q7-op2">Transporte de bagagem (Apenas mochila de ataque).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q7-op3" name="q7" value="hibrido">
+                            <label for="q7-op3">Híbrido (Depende da etapa).</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="8">
+                    <p class="question-text">8. Qual é o seu orçamento diário aproximado?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q8-op1" name="q8" value="economico">
+                            <label for="q8-op1">Econômico (até 40€/dia).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8-op2" name="q8" value="conforto">
+                            <label for="q8-op2">Conforto (40€ - 80€/dia).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q8-op3" name="q8" value="flexivel">
+                            <label for="q8-op3">Flexível (Acima de 80€/dia).</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="9">
+                    <p class="question-text">9. Qual trecho do Caminho mais lhe atrai?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q9-op1" name="q9" value="frances">
+                            <label for="q9-op1">Caminho Francês (Tradicional e social).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q9-op2" name="q9" value="portugues">
+                            <label for="q9-op2">Caminho Português (Costa e praias).</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q9-op3" name="q9" value="primitivo">
+                            <label for="q9-op3">Caminho Primitivo (Desafio e natureza).</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="10">
+                    <p class="question-text">10. O que você mais espera conquistar?</p>
+                    <div class="options-group">
+                        <div class="option">
+                            <input type="radio" id="q10-op1" name="q10" value="amizades">
+                            <label for="q10-op1">Novas amizades e histórias.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10-op2" name="q10" value="clareza">
+                            <label for="q10-op2">Clareza mental e renovação.</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="q10-op3" name="q10" value="superacao">
+                            <label for="q10-op3">Superação física e mental.</label>
+                        </div>
+                    </div>
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+                <div class="form-step" id="final-step">
+                    <p class="question-text" id="texto-final">Obrigado!</p>
+                    <!-- Mensagem de status do envio -->
+                    <p id="msg-status" style="font-weight: 500; color: #FF7A29; margin-bottom: 1rem;">Salvando suas respostas...</p>
+                    
+                    <p>Estamos personalizando as melhores opções de roteiro para o seu perfil.</p>
+                    <a href="minhas_reservas.html" class="btn-reserve" style="margin-top: 2rem;">Ver Meus Roteiros</a>
+                    
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev">&larr; Voltar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. PROTEÇÃO DE ROTA E Identificação ---
+            const nomeSalvo = localStorage.getItem('nomeUsuario');
+            const emailSalvo = localStorage.getItem('emailUsuario');
+            
+            // VERIFICAÇÃO DE LOGIN: Se não tiver email, bloqueia e redireciona
+            if (!emailSalvo) {
+                alert("Por favor, faça login para acessar o formulário de personalização.");
+                window.location.href = "login.html";
+                return; // Impede que o resto do script rode
+            }
+
+            // Se passou da verificação, atualiza a interface
+            if (nomeSalvo) {
+                const spanNome = document.getElementById('nome-usuario');
+                if (spanNome) spanNome.innerText = `Olá, ${nomeSalvo}`;
+                
+                const textoFinal = document.getElementById('texto-final');
+                if (textoFinal) textoFinal.innerText = `Obrigado, ${nomeSalvo}!`;
+            }
+
+            // --- 2. Função para enviar ao Banco de Dados ---
+            async function enviarRespostas() {
+                // Dupla checagem (segurança extra)
+                if (!emailSalvo) {
+                    window.location.href = "login.html";
+                    return;
+                }
+
+                // Coleta todas as respostas do formulário
+                const respostas = {};
+                for(let i=1; i<=10; i++) {
+                    const el = document.querySelector(`input[name="q${i}"]:checked`);
+                    respostas[`q${i}`] = el ? el.value : null;
+                }
+
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/salvar_quiz', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            email: emailSalvo, 
+                            respostas: respostas 
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    const statusMsg = document.getElementById('msg-status');
+                    
+                    if (data.sucesso) {
+                        statusMsg.innerText = "Suas respostas foram salvas com sucesso!";
+                        statusMsg.style.color = "green";
+                    } else {
+                        statusMsg.innerText = "Erro ao salvar: " + data.mensagem;
+                        statusMsg.style.color = "red";
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                    document.getElementById('msg-status').innerText = "Erro de conexão com o servidor.";
+                    document.getElementById('msg-status').style.color = "red";
+                }
+            }
+
+            // --- 3. Navegação do Quiz ---
+            const radioButtons = document.querySelectorAll('#personalize-form input[type="radio"]');
+            
+            radioButtons.forEach(radio => {
+                radio.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const nextStep = currentStep.nextElementSibling;
+                    
+                    // Se for a última pergunta (passo 10), envia as respostas!
+                    if (currentStep.dataset.step === "10") {
+                        enviarRespostas();
+                    }
+
+                    setTimeout(() => {
+                        if (nextStep) {
+                            currentStep.classList.remove('active');
+                            nextStep.classList.add('active');
+                        }
+                    }, 300); 
+                });
+            });
+
+            const prevButtons = document.querySelectorAll('.btn-prev');
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const prevStep = currentStep.previousElementSibling;
+                    if (prevStep) {
+                        currentStep.classList.remove('active');
+                        prevStep.classList.add('active');
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

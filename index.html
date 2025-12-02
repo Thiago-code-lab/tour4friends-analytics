@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour4Friends - Caminho de Santiago</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="chat.js" defer></script>
+
+    <!-- Estilos adicionais para o Dropdown do Usuário -->
+    <style>
+        /* Container do ícone e do menu */
+        .user-dropdown-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 0; /* Aumenta a área de hover */
+        }
+
+        /* O ícone do usuário */
+        .user-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* Menu suspenso (escondido por padrão) */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%; /* Posiciona logo abaixo */
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+        /* Links dentro do menu */
+        .dropdown-menu a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        /* Efeito ao passar o mouse nas opções do menu */
+        .dropdown-menu a:hover {
+            background-color: #FFF9F7;
+            color: #FF7A29;
+        }
+
+        /* A Mágica: Mostra o menu ao passar o mouse no container */
+        .user-dropdown-container:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* Pequena animação no ícone */
+        .user-dropdown-container:hover .user-icon {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Estrutura do Header -->
+    <header class="header-container">
+        <div class="container">
+            <div class="header">
+                <a href="index.html" class="logo"> 
+                    <span class="logo-icon">☀️</span>tour4friends
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="roteiro.html">Roteiros</a></li>
+                        <li><a href="minhas_reservas.html">Minhas Reservas</a></li> 
+                    </ul>
+                </nav>
+                
+                <!-- GRUPO 1: Botões de Login/Cadastro (Aparece se NÃO estiver logado) -->
+                <div class="auth-buttons" id="auth-area">
+                    <a href="login.html" class="btn btn-login">Login</a>
+                    <a href="cadastre-se.html" class="btn btn-signup">Cadastre-se</a>
+                </div>
+
+                <!-- GRUPO 2: Perfil do Usuário (Aparece se ESTIVER logado) -->
+                <div class="user-profile" id="user-area" style="display: none; align-items: center; gap: 15px;">
+                    <span id="nome-usuario-header" style="font-weight: 600; color: #333;">Olá, Visitante</span>
+                    
+                    <!-- Estrutura do Dropdown -->
+                    <div class="user-dropdown-container">
+                        <div class="user-icon">👤</div>
+                        
+                        <div class="dropdown-menu">
+                            <a href="minhas_reservas.html">Minhas Reservas</a>
+                            <a href="#" id="btn-logout" style="border-top: 1px solid #eee;">Sair do Perfil</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Sua Jornada Inesquecível pelo <span class="highlight">Caminho de Santiago</span> começa aqui.</h1>
+                <p>Conte com uma equipe experiente para cuidar de cada detalhe da sua peregrinação.</p>
+                <!-- Botão leva para o Quiz -->
+                <a href="formulario.html" class="btn btn-reserve">Personalizar Roteiro</a>
+            </div>
+            
+            <!-- Imagens ilustrativas do Caminho (Unsplash) -->
+            <div class="hero-images">
+                <img src="/img/trilha.jpg" alt="Sinalização do Caminho" class="img-1">
+                <img src="/img/rio.jpg" alt="Paisagem do Caminho" class="img-2">
+                <img src="/img/ponte.jpg" alt="Peregrino" class="img-3">
+            </div>
+        </section>
+    </main>
+
+    <!-- Script para controlar a exibição do Login ou Nome -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Verifica se tem nome salvo no navegador
+            const nomeSalvo = localStorage.getItem('nomeUsuario');
+            
+            const authArea = document.getElementById('auth-area');
+            const userArea = document.getElementById('user-area');
+            const nomeHeader = document.getElementById('nome-usuario-header');
+            const btnLogout = document.getElementById('btn-logout');
+
+            if (nomeSalvo) {
+                // --- USUÁRIO LOGADO ---
+                // Esconde os botões de login
+                authArea.style.display = 'none';
+                // Mostra a área do perfil
+                userArea.style.display = 'flex';
+                // Atualiza o texto com o nome
+                nomeHeader.innerText = `Olá, ${nomeSalvo}`;
+            } else {
+                // --- NÃO LOGADO ---
+                // Garante que os botões apareçam
+                authArea.style.display = 'flex';
+                userArea.style.display = 'none';
+            }
+
+            // 2. Lógica do botão "Sair"
+            if (btnLogout) {
+                btnLogout.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    // Limpa os dados salvos
+                    localStorage.removeItem('nomeUsuario');
+                    localStorage.removeItem('emailUsuario');
+                    
+                    // Redireciona explicitamente para a Home
+                    window.location.href = "index.html";
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
