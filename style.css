@@ -1,0 +1,711 @@
+/* --- 1. ESTILOS GLOBAIS E RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF9F7;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. COMPONENTE: HEADER --- */
+.header-container {
+    border-bottom: 1px solid #f0e6e2;
+    background-color: #fff; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    color: #FF7A29;
+    margin-right: 8px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    font-size: 1rem;
+}
+
+.nav-links a {
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active { /* Link Ativo fica laranja */
+    color: #FF7A29;
+}
+
+/* --- 3. COMPONENTE: BOTÕES (Auth) --- */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-login {
+    color: #333;
+}
+
+.btn-signup {
+    background-color: #FF7A29;
+    color: #fff;
+}
+
+.btn-signup:hover {
+    opacity: 0.9;
+}
+
+/* --- 4. PÁGINA ESPECÍFICA: HOME --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 0;
+}
+
+.hero-text {
+    max-width: 45%;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.highlight {
+    color: #FF7A29;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 1.5rem;
+    max-width: 400px;
+}
+
+.btn-reserve {
+    display: inline-block;
+    background-color: #FF7A29;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    margin-top: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 122, 41, 0.3);
+}
+
+.btn-reserve:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 122, 41, 0.4);
+}
+
+.hero-images {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+}
+
+.hero-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+.img-1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+.img-2 { grid-column: 1 / 2; grid-row: 2 / 3; }
+.img-3 { grid-column: 2 / 3; grid-row: 1 / 3; }
+
+/* --- 5. PÁGINAS ESPECÍFICAS: LOGIN E CADASTRO --- */
+body.auth-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-main {
+    flex-grow: 1;
+    display: grid;
+    place-items: center;
+    padding: 4rem 2rem;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 420px;
+    background-color: #F4F1F0;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+}
+
+.auth-form input::placeholder { color: #999; }
+
+.btn-submit {
+    background-color: #FF7A29;
+    color: #fff;
+    padding: 0.9rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 122, 41, 0.3);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 122, 41, 0.4);
+}
+
+.signup-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.signup-link a {
+    color: #FF7A29;
+    font-weight: 600;
+}
+
+.signup-link a:hover { text-decoration: underline; }
+
+/* --- 6. PÁGINA: FORMULÁRIO QUIZ --- */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.user-profile .user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #F4F1F0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+    color: #FF7A29;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 3rem auto;
+}
+
+.quiz-container h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.form-step { display: none; }
+.form-step.active { display: block; }
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option input[type="radio"] { display: none; }
+
+.option label {
+    display: block;
+    background-color: #F4F1F0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #444;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.option label:hover {
+    background-color: #e9e5e4;
+    border-color: #ddd;
+}
+
+.option input[type="radio"]:checked + label {
+    border-color: #FF7A29;
+    background-color: #fff;
+    color: #222;
+    font-weight: 500;
+}
+
+.option input[type="radio"]:checked + label::before {
+    content: '✓';
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    background-color: #FF7A29;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#final-step p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.step-navigation {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-prev {
+    background-color: transparent;
+    border: none;
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-prev:hover { color: #FF7A29; }
+
+/* --- 7. PÁGINA: LISTA DE ROTEIROS (CARDS) --- */
+
+.page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.roteiros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 0 80px 0;
+}
+
+.roteiro-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.roteiro-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-container {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff7f50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-desc {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-card {
+    background-color: transparent;
+    border: 2px solid #ff7f50;
+    color: #ff7f50;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.btn-card:hover {
+    background-color: #ff7f50;
+    color: white;
+}
+
+/* --- 8. CHATBOT --- */
+#chat-bolha {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #f7931e;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#chat-bolha:hover { transform: scale(1.1); }
+
+#chat-janela {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1001;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chat-janela.aberto { display: flex; }
+
+.chat-header {
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    display: flex;
+}
+
+.chat-footer input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+
+.chat-footer button {
+    background-color: #f7931e;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.msg {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+.msg p { margin: 0; }
+
+.msg.bot {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+}
+
+.msg.user {
+    background-color: #f7931e;
+    color: white;
+    align-self: flex-end;
+}
+
+/* --- 9. PÁGINA: MINHAS RESERVAS (AJUSTE "IMAGEM MENOS") --- */
+
+.reservas-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.reservas-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.reservas-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Grid em coluna para listar os cards */
+.reservas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Menor gap para ficar mais compacto */
+    padding-bottom: 80px;
+    max-width: 800px; /* Largura um pouco menor para o texto não ficar muito esticado */
+    margin: 0 auto;
+}
+
+/* O "Container Retangular" */
+.reserva-card {
+    background: #fff;
+    /* Borda mais "retangular" (menos arredondada) */
+    border-radius: 6px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+    
+    /* Flexbox para colocar imagem e texto lado a lado */
+    display: flex; 
+    flex-direction: row; 
+    overflow: hidden; 
+    align-items: stretch;
+    height: 200px; /* Altura fixa para ficar bem retangular e uniforme */
+}
+
+.reserva-card:hover {
+    transform: translateY(-3px);
+    border-color: #FF7A29; /* Detalhe laranja ao passar o mouse */
+}
+
+/* Área da Imagem (Menor, estilo thumbnail) */
+.reserva-img {
+    width: 220px; /* Largura fixa e MENOR */
+    min-width: 220px;
+    position: relative;
+    height: 100%;
+}
+
+.reserva-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Área do Conteúdo */
+.reserva-info {
+    padding: 20px 30px;
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o texto */
+}
+
+.reserva-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.reserva-details p {
+    color: #666;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 14px;
+    border-radius: 4px; /* Tag também mais quadrada */
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status.confirmado {
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #C8E6C9;
+}
+
+.status.pendente {
+    background-color: #FFF3E0;
+    color: #EF6C00;
+    border: 1px solid #FFE0B2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .reserva-card {
+        flex-direction: column;
+        height: auto; /* Altura automática no celular */
+    }
+    
+    .reserva-img {
+        width: 100%;
+        height: 180px;
+    }
+    
+    .reserva-info {
+        padding: 20px;
+    }
+}
