@@ -97,7 +97,7 @@ Queries Otimizadas
       </td>
       <td align="center">
         <a href="#">
-          <img src="https://media.licdn.com/dms/image/v2/C4D03AQFgxzNm-DDZUg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1619123196498?e=1766016000&v=beta&t=36HQUfb-1v3AoHk6a0zcWXbDaGlieEbtByLGFnqM8e0" width="100px;" alt="Membro 4"/><br/>
+          <img src="https://media.licdn.com/dms/image/v2/C4D03AQFgxzNm-DDZUg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1619123196498?e=1772668800&v=beta&t=A-ltN3z0UYXvaEcXxOLr3oPq8UNSLxIm5VhRdoVtqsQ" width="100px;" alt="Membro 4"/><br/>
           <sub><b>William Nunes</b></sub>
         </a>
       </td>
